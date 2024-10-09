@@ -3,10 +3,10 @@ import hashlib
 
 def get_db_connection():
     conn = pymysql.connect(
-        host=st.secrets["MYSQL_HOST"],  # MySQL host (cloud or exposed local)
-        user=st.secrets["MYSQL_USER"],  # MySQL username
-        password=st.secrets["MYSQL_PASSWORD"],  # MySQL password
-        database=st.secrets["MYSQL_DB"],  # MySQL database name
+        host=st.secrets["https://stale-bobcats-lead.loca.lt"],  # MySQL host (cloud or exposed local)
+        user=st.secrets["root"],  # MySQL username
+        password=st.secrets["root"],  # MySQL password
+        database=st.secrets["webapp"],  # MySQL database name
         port=3306  # MySQL port (3306 is the default)
     )
     return conn
