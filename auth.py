@@ -5,13 +5,18 @@ import hashlib
 
 # Database connection setup
 def create_connection():
-    connection = pymysql.connect(
-        host = st.secrets["MYSQL_HOST"],
-        user = st.secrets["MYSQL_USER"],
-        password = st.secrets["MYSQL_PASSWORD"],
-        database = st.secrets["MYSQL_DB"]
-    )
-    return connection
+    try:
+        connection = pymysql.connect(
+            host=st.secrets["MYSQL_HOST"],       # Use secrets for MySQL host
+            user=st.secrets["MYSQL_USER"],       # Use secrets for MySQL username
+            password=st.secrets["MYSQL_PASSWORD"], # Use secrets for MySQL password
+            database=st.secrets["MYSQL_DB"],     # Use secrets for MySQL database name
+            cursorclass=pymysql.cursors.DictCursor
+        )
+        return connection
+    except pymysql.MySQLError as e:
+        st.error(f"Error connecting to the database: {e}")
+        return None
 
 # Hash password for secure storage
 def hash_password(password):
