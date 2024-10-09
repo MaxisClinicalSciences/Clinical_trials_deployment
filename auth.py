@@ -8,7 +8,7 @@ def create_connection():
         user=st.secrets["MYSQL_USER"],  # MySQL username
         password=st.secrets["MYSQL_PASSWORD"],  # MySQL password
         database=st.secrets["MYSQL_DB"],  # MySQL database name
-        port=3306  # MySQL port (3306 is the default)
+        port=3306,  # MySQL port (3306 is the default)
         cursorclass=pymysql.cursors.DictCursor
     )
     return connection
