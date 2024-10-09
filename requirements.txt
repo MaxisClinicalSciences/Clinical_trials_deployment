@@ -6,3 +6,4 @@ langchain>=0.0.325
 huggingface-hub>=0.17.3
 werkzeug>=3.0.1
 urllib3>=2.0.6
+pymysql>=1.1.0
