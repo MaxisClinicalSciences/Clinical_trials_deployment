@@ -4,10 +4,11 @@ import hashlib
 # Database connection setup
 def create_connection():
     connection = pymysql.connect(
-        host='https://stale-bobcats-lead.loca.lt',       # Your MySQL host
-        user='root',        # Your MySQL username
-        password='root',# Your MySQL password
-        database='webapp',      # Your MySQL database name
+         host=st.secrets["MYSQL_HOST"],  # MySQL host (cloud or exposed local)
+        user=st.secrets["MYSQL_USER"],  # MySQL username
+        password=st.secrets["MYSQL_PASSWORD"],  # MySQL password
+        database=st.secrets["MYSQL_DB"],  # MySQL database name
+        port=3306  # MySQL port (3306 is the default)
         cursorclass=pymysql.cursors.DictCursor
     )
     return connection
