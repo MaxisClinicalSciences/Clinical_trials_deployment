@@ -4,7 +4,7 @@ import hashlib
 # Database connection setup
 def create_connection():
     connection = pymysql.connect(
-        host='localhost',       # Your MySQL host
+        host='https://stale-bobcats-lead.loca.lt',       # Your MySQL host
         user='root',        # Your MySQL username
         password='root',# Your MySQL password
         database='webapp',      # Your MySQL database name
