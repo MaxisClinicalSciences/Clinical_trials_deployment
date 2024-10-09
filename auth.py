@@ -8,11 +8,11 @@ import streamlit as st
 def create_connection():
     try:
         connection = pymysql.connect(
-            host=st.secrets["https://brown-bears-film.loca.lt"],
-            port=int(st.secrets["3306"]),  # Include port if necessary
-            user=st.secrets["root"],
-            password=st.secrets["root"],
-            database=st.secrets["webapp"],
+            host=st.secrets["MYSQL_HOST"],
+            port=int(st.secrets["MYSQL_PORT"]),  # Include port if necessary
+            user=st.secrets["MYSQL_USER"],
+            password=st.secrets["MYSQL_PASSWORD"],
+            database=st.secrets["MYSQL_DB"],
             cursorclass=pymysql.cursors.DictCursor
         )
         return connection
