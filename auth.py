@@ -1,26 +1,17 @@
 import pymysql
 import hashlib
 
-def get_db_connection():
-    conn = pymysql.connect(
-        host=st.secrets["https://stale-bobcats-lead.loca.lt"],  # MySQL host (cloud or exposed local)
-        user=st.secrets["root"],  # MySQL username
-        password=st.secrets["root"],  # MySQL password
-        database=st.secrets["webapp"],  # MySQL database name
-        port=3306  # MySQL port (3306 is the default)
-    )
-    return conn
 
-# # Database connection setup
-# def create_connection():
-#     connection = pymysql.connect(
-#         host=' https://stale-bobcats-lead.loca.lt',  # MySQL host (cloud or exposed local)
-#         user='root',  # MySQL username
-#         password='root',  # MySQL password
-#         database='webapp',  # MySQL database name
-#         cursorclass=pymysql.cursors.DictCursor
-#     )
-#     return connection
+
+# Database connection setup
+def create_connection():
+    connection = pymysql.connect(
+        host = st.secrets["MYSQL_HOST"]
+        user = st.secrets["MYSQL_USER"]
+        password = st.secrets["MYSQL_PASSWORD"]
+        database = st.secrets["MYSQL_DB"]
+    )
+    return connection
 
 # Hash password for secure storage
 def hash_password(password):
