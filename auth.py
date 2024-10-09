@@ -37,15 +37,19 @@ def check_credentials(username, password):
 
 # Register a new user (for registration)
 def register_user(username, password):
+    connection = create_connection()
+    if connection is None:
+        return False  # Connection failed, can't register user
+
     try:
-        connection = create_connection()
         with connection.cursor() as cursor:
             sql = "INSERT INTO users (username, password) VALUES (%s, %s)"
             cursor.execute(sql, (username, hash_password(password)))
             connection.commit()
             return True
     except pymysql.MySQLError as e:
-        print(f"Error: {e}")
+        st.error(f"Error registering user: {e}")
         return False
     finally:
-        connection.close()
+        if connection:  # Check if connection is not None before closing
+            connection.close()
