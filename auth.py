@@ -6,9 +6,9 @@ import hashlib
 # Database connection setup
 def create_connection():
     connection = pymysql.connect(
-        host = st.secrets["MYSQL_HOST"]
-        user = st.secrets["MYSQL_USER"]
-        password = st.secrets["MYSQL_PASSWORD"]
+        host = st.secrets["MYSQL_HOST"],
+        user = st.secrets["MYSQL_USER"],
+        password = st.secrets["MYSQL_PASSWORD"],
         database = st.secrets["MYSQL_DB"]
     )
     return connection
