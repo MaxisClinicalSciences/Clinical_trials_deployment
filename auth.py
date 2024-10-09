@@ -60,9 +60,9 @@ def register_user(username, password):
 def main():
     # Initialize session state variables if they do not exist
     if 'register_username' not in st.session_state:
-        st.session_state.register_username = ""
+        st.session_state.register_username = ""  # Initialize with an empty string
     if 'register_password' not in st.session_state:
-        st.session_state.register_password = ""
+        st.session_state.register_password = ""  # Initialize with an empty string
 
     st.title("User Registration")
 
@@ -75,6 +75,3 @@ def main():
             st.success("User registered successfully!")
         else:
             st.error("Failed to register user.")
-
-if __name__ == "__main__":
-    main()
