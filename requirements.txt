@@ -1,0 +1,8 @@
+streamlit
+pandas
+auth
+urllib.parse import quote_plus
+langchain.prompts import PromptTemplate
+langchain.chains import LLMChain
+langchain.llms import HuggingFaceHub
+requests
